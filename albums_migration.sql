@@ -2,6 +2,9 @@ USE codeup_test_db;
 
 DROP TABLE IF EXISTS albums;
 
+ALTER TABLE albums
+    ADD UNIQUE (artist, name);
+
 CREATE TABLE albums
 (
     id           INT UNSIGNED NOT NULL AUTO_INCREMENT,
