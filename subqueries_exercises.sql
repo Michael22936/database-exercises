@@ -16,4 +16,12 @@ WHERE emp_no IN (
     WHERE first_name = 'Aamod'
 );
 
+SELECT DISTINCT title
+FROM titles
+WHERE emp_no IN (
+    SELECT emp_no
+    FROM employees
+    WHERE first_name = 'Aamod'
+);
+
 
