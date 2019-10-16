@@ -31,3 +31,15 @@ WHERE gender = 'F' AND emp_no In(
     FROM dept_manager
     WHERE to_date > NOW()
 );
+
+SELECT dept_name
+FROM departments
+WHERE dept_no In(
+    SELECT dept_manager.dept_no
+    FROM dept_manager
+    WHERE to_date > NOW() AND emp_no IN(
+        SELECT emp_no
+        FROM employees
+        WHERE gender = 'F'
+        )
+);
