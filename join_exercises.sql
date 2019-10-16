@@ -89,7 +89,7 @@ FROM employees as e
               ON d.dept_no = de.dept_no
          JOIN titles t
               ON e.emp_no = t.emp_no
-WHERE dept_name = 'Customer Service' AND t.to_date = '9999-01-01'
+WHERE dept_name = 'Customer Service' AND t.to_date = '9999-01-01' AND de.to_date > NOW()
 GROUP BY title;
 
 SELECT d.dept_name, CONCAT(e.first_name, ' ', e.last_name) AS full_name, salaries.salary
