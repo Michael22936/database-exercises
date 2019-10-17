@@ -43,3 +43,14 @@ WHERE dept_no In(
         WHERE gender = 'F'
         )
 );
+
+SELECT first_name, last_name
+FROM employees
+WHERE emp_no IN(
+    SELECT emp_no
+    FROM salaries
+    WHERE salary IN (
+        SELECT MAX(salary)
+        FROM salaries
+        )
+    );
